@@ -1,0 +1,26 @@
+{
+  "info": { "name": "Prueba Backend - Products & Inventory", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "item": [
+    {
+      "name": "Products - Create",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8000/products", "host": ["http://localhost:8000"], "path": ["products"] },
+        "body": { "mode": "raw", "raw": "{\"data\":{\"type\":\"products\",\"attributes\":{\"nombre\":\"Laptop\",\"precio\":1200.5}}}" }
+      }
+    },
+    {
+      "name": "Inventory - Set stock",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "x-api-key", "value": "inv-secret-key" }
+        ],
+        "url": { "raw": "http://localhost:8001/inventory", "host": ["http://localhost:8001"], "path": ["inventory"] },
+        "body": { "mode": "raw", "raw": "{\"data\":{\"id\":1,\"type\":\"inventories\",\"attributes\":{\"cantidad\":10}}}" }
+      }
+    }
+  ]
+}
